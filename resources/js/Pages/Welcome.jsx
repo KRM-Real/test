@@ -6,8 +6,8 @@ export default function Welcome({ canLogin, canRegister, laravelVersion, phpVers
             <Head title="Welcome" />
             <div className="relative min-h-screen bg-white flex flex-col justify-center items-center text-gray-800 px-6 overflow-hidden">
                 <header className="mb-12 text-center z-10">
-                    <h1 className="text-5xl font-extrabold text-green-700 mb-2">Batang Quiapo Fans</h1>
-                    <p className="text-lg text-gray-600">Welcome to the official fan portal of Batang Quiapo</p>
+                    <h1 className="text-5xl font-extrabold text-green-700 mb-2">Test Page 101</h1>
+                    <p className="text-lg text-gray-600">Welcome to the Test Page using Laravel Starter Kit</p>
                 </header>
 
                 <div className="flex gap-4 mb-8 z-10">
@@ -32,13 +32,6 @@ export default function Welcome({ canLogin, canRegister, laravelVersion, phpVers
                 <footer className="text-sm text-gray-400 z-10">
                     Laravel v{laravelVersion} • PHP v{phpVersion}
                 </footer>
-
-                {/* Larger Decorative Image */}
-                <img
-                    src="/images/quiapo.png" // Make sure this path is correct
-                    alt="Quiapo Theme"
-                    className="absolute bottom-0 right-0 w-80 opacity-90 md:block hidden pointer-events-none"
-                />
             </div>
         </>
     );
