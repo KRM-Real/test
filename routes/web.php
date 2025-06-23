@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\MemberController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -19,18 +20,21 @@ Route::get('/', function () {
 // Authenticated Dashboard
 Route::get('/dashboard', function () {
     return Inertia::render('Dashboard', [
-        'employeesCount' => User::count(), // Updated from Employee::count()
-        'auth' => [
-            'user' => Auth::user(),
-        ],
+        'usersCount' => User::count(),
     ]);
 })->middleware(['auth'])->name('dashboard');
+
 
 // Authenticated Profile Routes
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+});
+
+// Member Management Routes
+Route::middleware(['auth', 'verified'])->group(function (){
+    Route::resource('members', MemberController::class);
 });
 
 // Auth scaffolding routes

@@ -1,12 +1,16 @@
+import React from 'react';
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout';
-import { Head } from '@inertiajs/react';
+import { Head, usePage } from '@inertiajs/react';
 import DeleteUserForm from './Partials/DeleteUserForm';
 import UpdatePasswordForm from './Partials/UpdatePasswordForm';
 import UpdateProfileInformationForm from './Partials/UpdateProfileInformationForm';
 
 export default function Edit({ mustVerifyEmail, status }) {
+    const { auth } = usePage().props; // ✅ Get `auth` from props
+
     return (
         <AuthenticatedLayout
+            auth={auth} // ✅ Pass `auth` to the layout
             header={
                 <h2 className="text-xl font-semibold leading-tight text-gray-800">
                     Profile
